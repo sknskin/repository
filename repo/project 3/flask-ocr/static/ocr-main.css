@@ -1,0 +1,33 @@
+html {
+  filter: grayscale(1);
+}
+body {
+  background-image: url("/static/styles/img/bar.jpg");
+}
+@media (max-width: 1180px) {
+  body {
+    background-size: cover;
+    height: 840px;
+  }
+}
+h2 {
+  color: black;
+}
+
+input[type="submit"] {
+  width: 150px;
+  height: 30px;
+}
+
+.button {
+  background-color: #000;
+  color: #fff;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.button:hover {
+  background-color: #fff;
+  color: #000;
+  transition: 1s;
+}

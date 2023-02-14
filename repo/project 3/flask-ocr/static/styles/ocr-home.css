@@ -1,0 +1,34 @@
+body {
+  background-image: url("/static/styles/img/main.jpg");
+}
+@media (max-width: 1180px) {
+  body {
+    background-size: cover;
+    height: 100%;
+  }
+}
+h1 {
+  color: #fff;
+}
+.Adult {
+  font-size: 21pt;
+  font-weight: bold;
+  position: relative;
+  top: 280px;
+  text-align: center;
+}
+button {
+  background-color: #000;
+  color: #fff;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: bold;
+  padding: 25px 40px;
+  font-size: 20pt;
+}
+button:hover {
+  background-color: #fff;
+  color: #000;
+  transition: 1s;
+  font-weight: bold;
+}

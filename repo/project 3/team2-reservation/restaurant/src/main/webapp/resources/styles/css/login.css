@@ -1,0 +1,22 @@
+input::placeholder {
+	color: lightgray;
+}
+.contact-grids d-grid {
+	width: 1000px;
+	height: 200px;
+	text-align: center;
+}
+.input-grids {
+	margin: 0 auto;
+	width: 500px;
+	position: relative;
+	top: 0%;
+	left: 50%;
+}
+.button-grids {
+	margin: 0 auto;
+	width: 500px;
+	position: relative;
+	top: 0%;
+	left: 50%;
+}

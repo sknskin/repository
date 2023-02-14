@@ -1,0 +1,125 @@
+@import url('https://fonts.googleapis.com/css?family=Lato&display=swap');
+
+* {
+  box-sizing: border-box;
+}
+
+/* body {
+  background-color: #242333;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  font-family: 'Lato', sans-serif;
+  margin: 0;
+} 
+ */
+.rsv_container {
+    margin: 0 auto;
+    width: 595px;
+    margin-top:5px;
+}
+
+.rsv_container select {
+  background-color: #fff;
+  border: 0;
+  border-radius: 5px;
+  font-size: 14px;
+  margin-left: 10px;
+  padding: 5px 15px 5px 15px;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+.seat {
+  background-color: #444451;
+  height: 40px;
+  width: 40px;
+  margin: 19px;
+  color:#fff;
+  
+}
+.box{
+  background-color: #444451;
+  height: 40px;
+  width: 40px;
+  margin: 19px;
+  
+}
+
+.box.selected {
+  background-color: #6feaf6;
+}
+
+.box.occupied {
+  background-color: #fff;
+}
+
+.seat:nth-of-type(2) {
+  margin-right: 18px;
+}
+
+.seat:nth-last-of-type(2) {
+  margin-left: 18px;
+}
+
+.seat:hover {
+  cursor: pointer;
+  transform: scale(1.2);
+}
+
+.showcase .seat:hover {
+  cursor: default;
+  transform: scale(1);
+}
+
+.showcase {
+  background: rgba(0, 0, 0, 0.1);
+  padding: 5px 10px;
+  border-radius: 5px;
+  margin:0 auto;
+  width:600px;
+  color: #777;
+  list-style-type: none;
+  display: flex;
+  justify-content: space-between;
+}
+
+.showcase li {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 10px;
+}
+
+.showcase li small {
+  margin-left: 2px;
+}
+
+.row {
+  display: flex;
+}
+
+p.text {
+  margin: 5px 0;
+}
+
+p.text span {
+  color: #6feaf6;
+}
+.w3l-clients .main-w3{background:none;}
+.w3l-clients .main-w3:before{background:none;}
+.river_view{width:587px;height:45px; border:1px solid #fff; background-color:skyblue;}
+.river_view h3{color:#fff;text-align:center; font-weight:bold;}
+.kitchen{width:352px; height:40px; border:1px solid #fff; margin:19px; background-color:pink;}
+.kitchen h3{color:#fff;text-align:center; font-weight:bold;}
+#reset_btn{background-color: green;
+    color: #fff;
+    border: none;
+    padding: 10px;
+    width: 180px;
+    margin: 0 auto;
+    float:right;}

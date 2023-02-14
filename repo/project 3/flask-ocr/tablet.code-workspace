@@ -1,0 +1,13 @@
+{
+  "folders": [
+    {
+      "path": "."
+    },
+    {
+      "path": "../react-order"
+    }
+  ],
+  "settings": {
+    "liveServer.settings.multiRootWorkspaceName": "flask-ocr"
+  }
+}
