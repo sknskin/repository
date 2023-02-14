@@ -1,5 +1,0 @@
-DRAW
-WIN
-LOSE
-WIN
-WIN
