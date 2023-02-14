@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>선택자 연습 2</title>
+    <style type="text/css">
+        p { font-size: 25pt; }
+        #a > p { /* id="a" 인 요소의 한 단계 하위의 p */
+            color: purple;
+        }
+
+        #a p { /* id="a" 인 요소의 하위의 모든 p */
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div id="a">
+        <div id="b">
+            <p>스타일이 적용된 요소 1</p>
+        </div>
+        <p>스타일이 적용된 요소 1</p>
+    </div>
+    <p>스타일이 적용된 요소 1</p>
+</body>
+</html>

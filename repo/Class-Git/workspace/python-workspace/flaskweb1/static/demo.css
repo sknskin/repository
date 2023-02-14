@@ -1,0 +1,12 @@
+h2 {
+    color: red
+}
+
+h3 {
+    color: skyblue
+}
+
+input[type=submit] {
+    width: 150px;
+    height:30px;
+}

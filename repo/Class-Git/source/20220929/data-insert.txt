@@ -1,0 +1,35 @@
+
+LOCK TABLES `member` WRITE;
+INSERT INTO `member` VALUES ('a','ca978112ca1bbdcafac231b39a23dc4da786eff8147c4e72b9807785afee48bb','a','user','2022-09-26 11:39:39',1);
+INSERT INTO `member` VALUES ('iamuserone','21a7e739407322545ea44d42cf7b111177f5b74a239162592bd56caea965b890','iamuserone@example.com','user','2022-09-19 10:10:07',1);
+INSERT INTO `member` VALUES ('iamusertwo','2731b8eae158e5413bbc173ed1b2e7bf2e537070d447a436773d2c8c5c7b75fa','iamusertwo@example.com','user','2022-09-21 10:06:50',1);
+INSERT INTO `member` VALUES ('newiamuserone','eff1737238b769caddc8760fcd56bb35f42827e16dd3b9f9a9e95307690db5f8','newiamuserone@example.com','user','2022-09-29 10:51:46',1);
+UNLOCK TABLES;
+
+LOCK TABLES `board` WRITE;
+INSERT INTO `board` VALUES (1,'첫 번째 게시글','iamuserone','글쓰기 연습입니다. \r\n\r\n확인해 주세요\r\n\r\n끝.','2022-09-20 10:18:22',5,0);
+INSERT INTO `board` VALUES (2,'두 번째 게시글','iamuserone','연습 2','2022-09-20 12:09:14',6,1);
+INSERT INTO `board` VALUES (3,'세 번째 게시글','iamuserone','연습 1\r\n연습 2\r\n연습 3','2022-09-20 15:34:22',57,0);
+INSERT INTO `board` VALUES (4,'첨부파일 연습','iamusertwo','첨부파일이 저장되고\r\n\r\n첨부파일 정보가 데이터베이스에 저장되는지\r\n\r\n확인해 주세요','2022-09-22 11:09:41',2,0);
+INSERT INTO `board` VALUES (5,'첨부파일 없는 게시글 연습','iamusertwo','연습 확인해 주세요','2022-09-22 11:40:48',1,0);
+INSERT INTO `board` VALUES (6,'끝나고 다시하는 연습','iamusertwo','제목 없음 파일을 업로드했습니다.\r\n\r\n확인해 주세요\r\n\r\n끝.','2022-09-22 13:13:27',1,0);
+INSERT INTO `board` VALUES (31,'테스트 게시글1','iamusertwo','테스트 게시글 연습입니다.','2022-09-22 14:55:12',0,0);
+INSERT INTO `board` VALUES (32,'테스트 게시글2','iamusertwo','테스트 게시글 연습입니다.','2022-09-22 14:55:12',1,0);
+INSERT INTO `board` VALUES (33,'테스트 게시글3','iamusertwo','테스트 게시글 연습입니다.','2022-09-22 14:55:12',0,0);
+INSERT INTO `board` VALUES (34,'테스트 게시글4','iamusertwo','테스트 게시글 연습입니다.','2022-09-22 14:55:12',1,1);
+INSERT INTO `board` VALUES (35,'테스트 게시글5','iamusertwo','테스트 게시글 연습입니다.','2022-09-22 14:55:12',2,1);
+INSERT INTO `board` VALUES (36,'편집 후 페이지 이동 테스트','iamusertwo','테스트 게시글 연습입니다.','2022-09-22 14:55:12',2,0);
+INSERT INTO `board` VALUES (37,'테스트 게시글7','iamusertwo','테스트 게시글 연습입니다.','2022-09-22 14:55:12',0,0);
+INSERT INTO `board` VALUES (38,'테스트 게시글8','iamusertwo','테스트 게시글 연습입니다.','2022-09-22 14:55:12',0,0);
+INSERT INTO `board` VALUES (39,'테스트 게시글9','iamusertwo','테스트 게시글 연습입니다.','2022-09-22 14:55:12',0,0);
+INSERT INTO `board` VALUES (40,'테스트 게시글10','iamusertwo','테스트 게시글 연습입니다.','2022-09-22 14:55:12',1,0);
+INSERT INTO `board` VALUES (41,'테스트 게시글11','iamusertwo','테스트 게시글 연습입니다.','2022-09-22 14:55:12',2,0);
+INSERT INTO `board` VALUES (42,'이 글은 수정된 글입니다','iamusertwo','글 수정 연습입니다.\r\n\r\n확인해주세요.\r\n\r\n끝.','2022-09-22 14:55:12',11,0);
+INSERT INTO `board` VALUES (43,'표현 언어 연습 (수정)','iamusertwo','표현 언어 연습 게시글','2022-09-26 11:57:38',3,0);
+INSERT INTO `board` VALUES (46,'안녕','a','안녕하세요','2022-09-26 11:58:47',4,0);
+UNLOCK TABLES;
+
+LOCK TABLES `boardattach` WRITE;
+INSERT INTO `boardattach` VALUES (1,4,'doggy-635409_1280.png','f5ffae6f-b9ae-4f2f-95ed-48203c5b9773.png',0);
+INSERT INTO `boardattach` VALUES (2,6,'제목 없음.png','21029cbc-aa49-4980-8963-8d7f1f6088e0.png',0);
+UNLOCK TABLES;

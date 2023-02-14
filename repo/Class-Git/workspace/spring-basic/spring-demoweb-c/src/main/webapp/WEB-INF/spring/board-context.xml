@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+	
+	<bean id="boardService" class="com.demoweb.service.BoardServiceImpl">
+		<property name="boardDao" ref="boardDao" />
+		<property name="boardMapper" ref="boardMapper" />
+	</bean>
+	
+	<!-- 
+	<bean id="boardDao" class="com.demoweb.dao.BoardDaoImpl"></bean>
+ 	--> 
+ 	<bean id="boardDao" class="com.demoweb.dao.MyBatisBoardDaoImpl">
+ 		<property name="sqlSession" ref="sqlSession" />
+ 	</bean>
+ 	
+ 	<!-- BoardMapper 인터페이스를 구현하는 클래스 자동 생성 + IoC 컨테이너에 등록 -->
+	<!-- 이 객체는 Dao의 역할을 수행합니다. -->
+	<!-- 아래 bean 설정은 Mapper interface의 @Mapper annotation으로 대체 가능 -->
+	<!--  
+	<bean id="boardMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
+		<property name="sqlSessionFactory" ref="sqlSessionFactory" />
+		<property name="mapperInterface" value="com.demoweb.mapper.BoardMapper" />
+	</bean>
+	-->
+
+</beans>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

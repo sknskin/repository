@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+</head>
+<body>
+
+    <button>눌러주세요</button>
+    <hr>
+    <div id="message"></div>
+
+    <script type="text/javascript">
+        function f1() {
+            console.log("function f1");
+        }
+        f1();
+
+        const f2 = f1;
+        f2();
+
+        const f3 = function() {
+            console.log("function f3");
+        }
+        f3();
+
+        const btn = document.querySelector('button');
+        // btn.addEventListener('click', f3);
+        btn.addEventListener('click', function(event) {
+            const message = document.querySelector('#message');
+            message.innerHTML = `<h2>${Math.floor(Math.random() * 900) + 100}</h2>`;
+        });
+
+        const ar = [15, 33, 56, 14, 37, 60];
+        const ar2 = []
+        for (let i = 0; i < ar.length ;i++) {
+            ar2.push(ar[i] * 2);
+        }
+        console.log(ar2);
+
+        const ar3 = ar.map(function(n, i) { return n * 2; });
+        console.log(ar3);
+
+        const ar4 = ar.map((n, i) => n * 2);
+        console.log(ar4);
+
+        const af1 = () => { console.log('test'); };
+        af1()
+
+    </script>
+    
+</body>
+</html>

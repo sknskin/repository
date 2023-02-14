@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd">
+
+	<description>Example configuration to get you started.</description>
+	
+	<!-- 아래는 MyServiceConsumer serviceConsumer = new MyServiceConsumer() 와 같은 의미의 설정 -->
+	<bean id="serviceConsumer" class="com.springexample.springioc.MyServiceConsumer">
+		<!-- 아래는 serviceConsumer.setMessageService(messageService2)와 같은 의미 -->
+		<property name="messageService" ref="messageService2" />
+		<!-- 아래는 serviceConsumer.setTimeService(timeService2)와 같은 의미 -->
+		<property name="timeService" ref="timeService2" />
+	</bean>
+	
+	<!-- 아래는 MyMessageService messageService2 = new MyMessageService() 와 같은 의미의 설정 -->
+	<bean id="messageService2" class="com.springexample.springioc.MyMessageService" />
+	
+	
+	<!-- 아래는 MyTimeService timeService2 = new MyTimeService() 와 같은 의미의 설정 -->
+	<bean id="timeService2" class="com.springexample.springioc.MyTimeService" />
+	
+	<!-- ............................  -->
+	
+	<!-- 아래는 MyServiceConsumer serviceConsumer2 = new MyServiceConsumer(messageService2) 와 같은 의미의 설정 -->
+	<bean id="serviceConsumer2" class="com.springexample.springioc.MyServiceConsumer">
+		<constructor-arg ref="messageService2" />
+		<!-- 아래는 serviceConsumer.setTimeService(timeService2)와 같은 의미 -->
+		<property name="timeService" ref="timeService2" />
+	</bean>
+
+</beans>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Person List</title>
+</head>
+<body>
+    <h1>Person List</h1>
+    <table border="1">
+        <tr>
+            <th>순서번호</th>
+            <th>이메일</th>
+            <th>전화번호</th>
+        </tr>
+        {% for person in persons %}
+        <tr>
+            {% for info in person %}
+            <td style="width:250px;height:50px;text-align: center">
+                {{ info }}
+            </td>
+            {% endfor %}
+        </tr>
+        {% endfor %}
+    </table>
+    
+</body>
+</html>

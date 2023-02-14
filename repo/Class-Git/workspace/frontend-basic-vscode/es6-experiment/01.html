@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+</head>
+<body>
+    <script type="text/javascript">
+        var a = 10;
+        const b = 10;   // 값을 변경할 수 없음
+        let c = 10;
+
+        a = 20;
+        // b = 20; // const로 지정된 변수의 값은 변경 할 수 없음
+        c = 20;
+
+        const b2 = [10, 20, 30];
+        b2[1] = 200;
+
+        function f() {
+            // var aa;
+            console.log(aa);
+            // console.log(aa2); // let으로 선언된 변수는 선언된 이후에만 사용할 수 있습니다.
+            // console.log(aa3); // const로 선언된 변수는 선언된 이후에만 사용할 수 있습니다.
+            var aa = 1000000; // aa 변수는 함수의 최상단에 선언된 것처럼 처리
+            let aa2 = 12345;
+            const aa3 = 45678;
+            if (true) {
+                var bb = 20000;
+                let bb2 = 54321;
+                const bb3 = 357951;
+            }
+            console.log(bb);
+            // console.log(bb2);// 오류 let으로 선언된 변수는 {} scope
+            // console.log(bb3);// 오류 const로 선언된 변수는 {} scope
+        }
+        f();
+
+    </script>
+</body>
+</html>

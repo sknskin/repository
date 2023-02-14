@@ -1,0 +1,16 @@
+1. 프로젝트 주제
+
+    - OCR 기능 서비스를 포함하는 범용 웹 서비스
+
+2. 기술 요소
+
+    - DBMS : Oracle, MySQL 중 선택
+    - 데이터베이스 연동 기술 : MyBatis, JPA 중 선택
+    - 웹 구현 : Spring Boot, Flask 각각 개발 및 연동
+    - 뷰엔진 : jsp/jstl 또는 thymeleaf 중 선택
+    - 프론트엔드 : React 또는 Bootstrap + jQuery 중 선택
+    - OCR : tesseract + tesseract-python
+
+3. 시스템 구성
+
+    스프링부트 웹사이트 + 플라스크 API 서비스 연동

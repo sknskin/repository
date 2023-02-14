@@ -1,0 +1,29 @@
+1. 라이브러리 등록
+
+   - pom.xml 
+
+2. DataSource (Connection Pool) 설정
+
+   - root-context.xml
+
+3. MyBatis Bean 등록
+
+   root-context.xml, SqlSessionFactory
+
+4. MyBatis 설정 파일 만들기
+
+   resources/mybatis-config.xml
+
+5. Mapper interface 만들기
+
+   @Mapper
+   <mybatis:scan ... 으로 등록
+
+
+6. Service 클래스에 의존 주입 코드
+
+   - Service 클래스에 변수 + @Setter
+   - root-context.xml 또는 member-context.xml 등에 의존 주입 설정
+
+
+7. Mapper interface 코드 작성

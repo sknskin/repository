@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>History 객체</title>
+</head>
+<body>
+
+    <a id="go-random" href="#">어디로 갈까요?</a>
+    &nbsp;|&nbsp;
+    <a id="go-google" href="javscript:">구글 개발자 사이트</a>
+    &nbsp;|&nbsp;
+    <a id="go-youtube" href="javscript:">Youtube</a>
+
+    <script type="text/javascript">
+        window.addEventListener("load", function(event) {
+            var goRandom = document.querySelector("#go-random");
+            goRandom.addEventListener("click", function(event) {
+                event.preventDefault();
+                switch ( Math.floor(Math.random() * 3) ) {
+                    case 0: 
+                        location.href = "http://developers.naver.com"; // 브라우저의 주소 입력기에 입력
+                        break;
+                    case 1: 
+                        location.href = "http://www.youtube.com"; // 브라우저의 주소 입력기에 입력
+                        break;
+                    case 2: 
+                        location.href = "https://www.ptlib.go.kr/bdrlib/index.do"; // 브라우저의 주소 입력기에 입력
+                        break;
+                }
+                
+            });
+
+        });
+    </script>
+    
+</body>
+</html>

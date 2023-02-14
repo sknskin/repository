@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>jQuery 준비</title>
+</head>
+<body>
+    
+    <input type="text" id="color">
+    <button id="btn-apply-color">색상 적용</button>
+    <hr>
+    <div id="canvas" style="height:500px;border:solid 1px"></div>
+
+    <script type="text/javascript" src="js/jquery-3.6.1.js"></script>
+    <script type="text/javascript">
+
+        $(function() {
+            var btn = $("#btn-apply-color"); // 확장 요소 집합 객체 생성
+            btn.on('click', function(event) {
+                // var input = $('#color');
+                // var canvas = $('#canvas');
+                // canvas.css("background-color", input.val());
+                $('#canvas').css('background-color', $('#color').val())
+            });
+        });
+
+    </script>
+</body>
+</html>

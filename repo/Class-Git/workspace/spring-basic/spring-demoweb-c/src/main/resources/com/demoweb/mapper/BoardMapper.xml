@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<!-- namespace : 패키지이름.클래스이름 ( 저장된 위치와 일치하도록 작성 ) -->
+<mapper namespace="com.demoweb.mapper.BoardMapper">
+
+	<insert id="insertBoard" parameterType="BoardDto"
+			useGeneratedKeys="true" keyColumn="boardno" keyProperty="boardNo">
+	INSERT INTO board (title, writer, content)
+	VALUES (#{ title }, #{ writer }, #{ content })
+	</insert>
+	
+	<insert id="insertBoard2" parameterType="BoardDto">
+	<selectKey keyProperty="boardNo" resultType="int" order="AFTER">
+	SELECT LAST_INSERT_ID()
+	</selectKey>
+	INSERT INTO board (title, writer, content)
+	VALUES (#{ title }, #{ writer }, #{ content })
+	</insert>
+
+	<select id="selectBoardByPage" parameterType="hashmap" resultType="BoardDto">
+	SELECT boardno, title, writer, readcount, regdate, deleted
+	FROM board
+	ORDER BY boardno DESC
+	LIMIT #{ from },#{ count }
+	</select>
+	
+	<select id="selectBoardCount" resultType="int">
+	SELECT COUNT(*) FROM board
+	</select>
+	
+	<resultMap id="boardResultMap" type="BoardDto">
+		<id column="boardno" property="boardNo" />
+		<result column="title" property="title" />
+		<result column="writer" property="writer" />
+		<result column="content" property="content" />
+		<result column="readcount" property="readCount" />
+		<result column="regdate" property="regDate" />
+		<collection property="attachments" select="selectBoardAttachByBoardNo" column="boardno" />
+	</resultMap>
+	<select id="selectBoardByBoardNo" parameterType="int" resultMap="boardResultMap">
+	SELECT boardno, title, writer, content, readcount, regdate
+	FROM board b	
+	WHERE boardno = #{boardNo} AND deleted = FALSE
+	</select>	
+	<select id="selectBoardAttachByBoardNo" parameterType="int" resultType="BoardAttachDto">
+	SELECT attachno, boardno, userfilename, savedfilename, downloadcount
+	FROM boardattach
+	WHERE boardno = #{ boardNo }
+	</select>
+	
+
+</mapper>
+
+
+
+
+
+
+
+
+
+
+

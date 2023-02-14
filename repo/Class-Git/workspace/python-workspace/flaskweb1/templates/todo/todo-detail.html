@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+	<meta charset='utf-8' />
+	<title>Home</title>
+	<link rel="Stylesheet" href="/static/styles/default.css" />
+	<link rel="Stylesheet" href="/static/styles/input2.css" />
+</head>
+<body>
+
+	<div id='pageContainer'>
+		
+		<div id="header">    	
+            <div class="title">
+                <a href="/home">DEMO WEBSITE</a>
+            </div>
+            <div class="links">
+            	<a href="#">로그인</a>
+                <a href="#">회원가입</a>
+            </div>
+        </div>
+                
+        <div id="menu">
+            <div>
+                <ul>
+                    <li><a href="#">사용자관리</a></li>
+					<li><a href="#">메일보내기</a></li>
+					<li><a href="#">자료실</a></li>
+					<li><a href="#">게시판</a></li>
+					<li><a href="/todo/list">할일</a></li>
+                </ul>
+            </div>
+		</div>
+		
+		<div style="padding-top:25px;text-align:center">
+		<div id="inputcontent">
+		    <div id="inputmain">
+		        <div class="inputsubtitle">할일 정보</div>
+		        <table>
+		            <tr>
+		                <th>제목</th>
+		                <td>
+		                    {{ todo[1] }}
+		                </td>
+		            </tr>
+		            <tr>
+		                <th>내용</th>
+		                <td>
+		                	{{ todo[2] }}
+		                </td>
+		            </tr>
+					<tr>
+		                <th>작성일자</th>
+		                <td>
+		                	{{ todo[3] }}
+		                </td>
+		            </tr>
+		        </table>
+		        <div class="buttons">
+		        	<input type="button" value="삭제" style="height:25px" />
+		        	<input type="button" value="수정" style="height:25px"  />
+		        </div>
+		    </div>
+		</div>
+		
+	</div>
+
+</body>
+</html>
+
+

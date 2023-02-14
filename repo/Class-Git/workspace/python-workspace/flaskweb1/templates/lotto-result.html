@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>로또 당첨 예상 번호</title>
+</head>
+<body>
+    <table border="1">
+    {% for numbers in numbers_list %}
+        <tr>
+        {% for number in numbers %}
+            <th style="width:50px;height:50px">{{ number }}</th>
+        {% endfor %}
+        </tr>
+    {% endfor %}
+    </table>
+</body>
+</html>

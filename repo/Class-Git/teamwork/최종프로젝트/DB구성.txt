@@ -1,0 +1,7 @@
+[ DB 계정 ]
+
+서버 아이피 : 3.36.132.159
+
+Oracle : id / password
+
+MySQL : id / password, dbname

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>문서 객체 연습</title>
+</head>
+<body>
+    
+    <input type="text" id="color">
+    <button id="btn-apply-color">색상 적용</button>
+    <hr>
+    <div id="canvas" style="height:500px;border:solid 1px"></div>
+
+    <script type="text/javascript">
+        var btn = document.querySelector("#btn-apply-color");
+        btn.addEventListener("click", function() {
+            var input = document.querySelector("#color");
+            var canvas = document.querySelector("#canvas");
+            canvas.style.backgroundColor = input.value; // 입력요소.value : 입력된 값
+        });
+
+        alert("10" + "10"); // "1010"
+        alert(window.parseInt("10") + parseInt("10")); // 20
+    </script>
+
+</body>
+</html>

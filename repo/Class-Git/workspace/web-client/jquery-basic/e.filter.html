@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>filtering</title>
+</head>
+<body>
+    <h3>Header-0</h3>
+    <h3>Header-1</h3>
+    <h3>Header-2</h3>
+    <h3>Header-3</h3>
+    <h3>Header-4</h3>
+    <h3>Header-5</h3>
+
+    <script type="text/javascript" src="js/jquery-3.6.1.js"></script>
+    <script type="text/javascript">
+        $(function() {
+            //// $('h3:odd').css({
+            // $("h3").filter(":odd").css({ // filter : 하위 검색 (결과내 재검색)
+            //     "background-color": "palegreen"
+            // });
+            // $("h3").filter(":even").css({
+            //     "background-color": "lightgray"
+            // });
+
+            $('h3').css("color", "red")     // 모든 h3에 적용
+                   .filter(":odd")
+                   .css({   // h3:odd에만 적용
+                        "background-color": "palegreen"
+                   })
+                   .end() // 이전 집합으로 이동 (filter 전으로 이동)
+                   .filter(":even") // h3:even에만 적용
+                   .css({
+                        "background-color": "lightgray"
+                   });
+
+            $('h3').filter(function(idx) { // h3을 반복하면서 함수 호출
+                        return (idx == 3 || idx == 1); // true를 반환하는 위치의 항목이 선택되는 항목
+                    })
+                    .css({"font-size": "50pt"});
+        });
+
+    </script>
+</body>
+</html>

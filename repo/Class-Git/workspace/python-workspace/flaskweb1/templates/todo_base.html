@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+	<meta charset='utf-8' />
+	{% block title %}{% endblock %}
+	{% block custom_css %}{% endblock %}
+</head>
+<body>
+
+	<div id='pageContainer'>
+		
+        {% include 'header.html' %}
+		
+        {% block main_content %}
+        {% endblock %}
+	</div>
+
+</body>
+</html>
+
+

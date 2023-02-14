@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>문서 객체 연습</title>
+</head>
+<body>
+    
+    <input type="text" id="krw">
+    <button id="btn-krw-to-usd">원==&gt;달러</button>
+    <button id="btn-usd-to-krw">원&lt;==달러</button>
+    <input type="text" id="usd">
+
+    <hr>
+
+    <table border="1">
+        <tr>
+            <td colspan="6">
+                <button id="btn-select-numbers" style="width:100%">번호 뽑기</button>
+            </td>
+        </tr>
+        <tr>
+            <td><input type="text" readonly id="no1"></td>
+            <td><input type="text" readonly id="no2"></td>
+            <td><input type="text" readonly id="no3"></td>
+            <td><input type="text" readonly id="no4"></td>
+            <td><input type="text" readonly id="no5"></td>
+            <td><input type="text" readonly id="no6"></td>
+        </tr>
+    </table>
+    
+    <script type="text/javascript">
+        var krw = document.querySelector("#krw");
+        var usd = document.querySelector("#usd");
+        var btnKrwToUsd = document.querySelector("#btn-krw-to-usd");
+        var btnUsdToKrw = document.querySelector("#btn-usd-to-krw");
+        btnKrwToUsd.addEventListener('click', function() {
+            usd.value = parseInt(krw.value) / 1362;
+        });
+        btnUsdToKrw.addEventListener('click', function() {
+            krw.value = parseInt(usd.value) * 1362;
+        });
+        ////////////////////////////////////////////
+
+        function selectLottoNumbers() {
+            var numbers = new Array(6); // [0, 0, 0, 0, 0, 0]
+            for (var i = 0; i < 6; i++) {
+                var no = Math.random() * 45;
+                no = Math.floor( no ) + 1;
+                numbers[i] = no;
+                for (var j = 0; j < i; j++) {
+                    if (numbers[i] == numbers[j]) {
+                        i--; // i = -1;
+                        break;
+                    }
+                }
+            }
+            return numbers;
+        }
+
+        var btn = document.querySelector('#btn-select-numbers');
+        btn.addEventListener('click', function() {
+            // alert('번호를 뽑아서 입력상자에 보여주세요');
+            var numbers = selectLottoNumbers(); // 번호 뽑기 ==> 배열 반환
+            for (var i = 0; i < numbers.length; i++) {
+                var number = numbers[i] // 번호 하나씩 뽑기
+                var input = document.querySelector("#no" + (i + 1));
+                input.value = number;
+            }
+            // document.querySelector('#no1').value = numbers[0]
+            // document.querySelector('#no2').value = numbers[1]
+            // document.querySelector('#no3').value = numbers[2]
+            // document.querySelector('#no4').value = numbers[3]
+            // document.querySelector('#no5').value = numbers[4]
+            // document.querySelector('#no6').value = numbers[5]
+
+        });
+    </script>
+
+</body>
+</html>

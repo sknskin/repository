@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+</head>
+<body>
+    <script type="text/javascript">
+        function increase10(number, callback) {
+            window.setTimeout(
+                () => {
+                    const result = number + 10;
+                    if (callback) {
+                        callback(result);
+                    }
+                },
+                1000
+            );
+        }
+
+        increase10(0, (result) => {
+            console.log(result);
+            increase10(result, (result) => {
+                console.log(result);
+                increase10(result, (result) => {
+                    console.log(result);
+                    increase10(result, (result) => {
+                        console.log(result);
+                        increase10(result, (result) => {
+                            console.log(result);
+                            console.log("The End...");
+                        });
+                    });
+                });
+            });
+        });
+    </script>
+</body>
+</html>

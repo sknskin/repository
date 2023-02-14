@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<!-- namespace : 패키지이름.클래스이름 ( 저장된 위치와 일치하도록 작성 ) -->
+<mapper namespace="com.demoweb.mapper.MemberMapper">
+
+	<!-- 메서드 -->
+	<insert id="insertMember" parameterType="com.demoweb.dto.MemberDto">
+		INSERT INTO member (memberid, passwd, email)
+		VALUES (#{memberId}, #{passwd}, #{email})
+	</insert>
+	
+	<!-- hashmap : DTO에 담을 수 없는 여러 개의 데이터를 처리하는 방법 -->
+	<select id="selectMemberByIdAndPasswd" parameterType="hashmap" 
+										   resultType="com.demoweb.dto.MemberDto">
+		SELECT memberid, email, usertype, regdate, active
+		FROM member
+		WHERE memberid = #{ memberId }
+			  AND
+			  passwd = #{ passwd }
+	</select>
+
+</mapper>

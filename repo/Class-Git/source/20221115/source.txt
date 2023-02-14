@@ -1,0 +1,59 @@
+
+		FileInputStream fis = null;
+		InputStreamReader isr = null;
+		BufferedReader br = null;
+		ArrayList<IrisDto> irisList = new ArrayList<>();
+		
+		try {
+			String irisPath = req.getServletContext().getRealPath("/data-files/iris.csv");
+			fis = new FileInputStream(irisPath);
+			isr = new InputStreamReader(fis);
+			br = new BufferedReader(isr);
+			br.readLine();
+			while (true) {
+				String line = br.readLine();
+				if (line == null) break;
+				
+				String[] data = line.split(",");
+				IrisDto iris = new IrisDto();
+				iris.setSepalLength(Double.parseDouble(data[0]));
+				iris.setSepalWidth(Double.parseDouble(data[1]));
+				iris.setPetalLength(Double.parseDouble(data[2]));
+				iris.setPetalWidth(Double.parseDouble(data[3]));
+				iris.setSpecies(data[4]);
+				
+				irisList.add(iris);
+			}
+			
+		} catch (Exception ex) {
+			ex.printStackTrace();
+		} finally {
+			try { br.close(); } catch (Exception ex) {}
+			try { isr.close(); } catch (Exception ex) {}
+			try { fis.close(); } catch (Exception ex) {}
+		}
+
+
+/////////////////////////////////
+
+if (dataset == null || dataset.length == 0) {
+			alert('데이터셋이 준비되지 않았습니다.');
+			return;
+		}
+		const labels = Object.keys(dataset[0]);
+		labels.pop();
+		
+		const data = [];
+		$.each(labels, function(idx, label) {
+			data.push(0);	
+		});
+		
+		var count = 0;
+		$.each(dataset, function(idx, row) {
+			count++;
+			$.each(labels, function(idx2, label) {
+				data[idx2] += row[label];
+			});
+		});
+		
+		const meanData = data.map(x => x / count);

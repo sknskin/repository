@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>문서 객체 연습</title>
+    <style type="text/css"></style>
+</head>
+<body>
+    
+    <table border="1">
+        <tr>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+        </tr>
+    </table>
+    <br>
+    <div></div>
+
+    <script type="text/javascript">
+        window.addEventListener('load', function() { // javascript의 main 함수 역할 (시작점)
+
+            var table = document.querySelector("table");
+            table.style.width = "500px";
+            table.style.margin = "0 auto";
+
+            var tr = document.querySelector('tr');
+            tr.style.height = "70px";
+
+            var bgColor = ['red', 'orange', 'yellow', 'green', 'blue', 'navy', 'purple'];
+            // document.querySelector("td"); // 첫 번째 td만 찾기
+            var tds = document.querySelectorAll("td"); // 모든 td 찾기
+            for (var i = 0; i < tds.length; i++) {
+                tds[i].id = bgColor[i]; // <td id='red' ...></td>
+                tds[i].style.backgroundColor = bgColor[i]; // background-color -> backgroundColor
+            }
+
+            var div = document.querySelector("div");
+            div.style.width = "500px";
+            div.style.height = "300px";
+            div.style.border = "solid 1px";
+            div.style.margin = "0 auto";
+
+            //////////////////////////////////////////////////////////
+
+            // document.querySelector("#red").addEventListener("click", function() {
+            //     div.style.backgroundColor = 'red';
+            // });
+            // document.querySelector("#orange").addEventListener("click", function() {
+            //     div.style.backgroundColor = 'orange';
+            // });
+            // document.querySelector("#yellow").addEventListener("click", function() {
+            //     div.style.backgroundColor = 'yellow';
+            // });
+            // document.querySelector("#green").addEventListener("click", function() {
+            //     div.style.backgroundColor = 'green';
+            // });
+            // document.querySelector("#blue").addEventListener("click", function() {
+            //     div.style.backgroundColor = 'blue';
+            // });
+            // document.querySelector("#navy").addEventListener("click", function() {
+            //     div.style.backgroundColor = 'navy';
+            // });
+            // document.querySelector("#purple").addEventListener("click", function() {
+            //     div.style.backgroundColor = 'purple';
+            // });
+
+            function tdClickHandler(event) {    // event : 이벤트 관련 정보
+                var td = event.target;          // event.target : 이벤트 발생 객체
+                div.style.backgroundColor = td.style.backgroundColor;                
+            }
+            for (var i = 0; i < tds.length; i++) {
+                tds[i].addEventListener('click', tdClickHandler);
+            }
+
+
+            
+        });
+    </script>
+
+</body>
+</html>

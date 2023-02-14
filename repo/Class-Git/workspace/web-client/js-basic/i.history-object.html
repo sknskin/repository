@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>History 객체</title>
+</head>
+<body>
+
+    <a id="prev" href="#">이전 페이지</a>
+    &nbsp;|&nbsp;
+    <a id="next" href="javscript:">다음 페이지</a>
+
+    <script type="text/javascript">
+        window.addEventListener("load", function(event) {
+            var prev = document.querySelector("#prev");
+            prev.addEventListener("click", function(event) {
+                event.preventDefault();
+                history.back(); // == history.go(-1);
+            });
+
+            var next = document.querySelector("#next");
+            next.addEventListener("click", function(event) {
+                event.preventDefault();
+                history.forward(); // == history.go(1);
+            });
+        });
+    </script>
+    
+</body>
+</html>

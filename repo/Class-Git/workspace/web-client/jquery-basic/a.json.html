@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>JSON</title>
+</head>
+<body>
+    
+    <script type="text/javascript">
+
+        var person = {
+            "name" : "John Doe",
+            "email" : ["johndoe@example.com", "johndoe@naver.com"],
+            "phone" : {
+                "mobile": "010-6523-7854",
+                "office": "02-3687-9514"
+            }
+        }
+
+        var persons = [
+            {
+                "name" : "John Doe",
+                "age" : 32,
+                "email" : ["johndoe@example.com", "johndoe@naver.com"],
+                "phone" : {
+                    "mobile": "010-6523-7854",
+                    "office": "02-3687-9514"
+                }
+            },
+            {
+                "name" : "Jane Doe",
+                "age" : 27,
+                "email" : ["janedoe@example.com", "janedoe@gmail.com"],
+                "phone" : {
+                    "mobile": "010-5477-3211",
+                    "office": "031-5289-1146"
+                }
+            }
+        ]
+
+        document.write("<h3>" + person.name + "</h3>");
+        document.write("<h3>" + person.email[0] + "</h3>");
+        document.write("<h3>" + person.phone.mobile + "</h3>");
+        document.write("<h3>" + person.phone.office + "</h3>");
+
+        document.write("<hr>");
+
+        document.write("<h3>" + persons[1].name + "</h3>");
+        document.write("<h3>" + persons[1].email[0] + "</h3>");
+        document.write("<h3>" + persons[1].phone.mobile + "</h3>");
+        document.write("<h3>" + persons[1].phone.office + "</h3>");
+
+    </script>
+</body>
+</html>

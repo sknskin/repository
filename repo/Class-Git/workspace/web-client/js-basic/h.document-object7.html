@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>문서 객체 연습</title>
+
+</head>
+<body>
+    <table>
+        <tr id="user-selection-row">
+            <td><img></td>
+            <td><img></td>
+            <td><img></td>
+        </tr>
+        <tr id="button-row">
+            <td colspan="3"><button id="btn-start-game">게임 시작</button></td>
+        </tr>
+        <tr id="result-row">
+            <td colspan="3"><img></td>
+        </tr>
+    </table>
+
+    <script type="text/javascript">
+        window.addEventListener('load', function(event) {
+
+            var selections = ["scissors", "rock", "paper"];
+
+            var userSelection = null; // 사용자 선택 없음 (처음 시작)
+
+            var table = document.querySelector("table");
+            table.style.margin = "0 auto";
+
+            var imgs = document.querySelectorAll("#user-selection-row img");
+            for (var i = 0; i < imgs.length; i++) {
+                imgs[i].src = `images/${ selections[i] }.png`;
+                imgs[i].style.width = "200px";
+                imgs[i].style.height = "200px";
+                imgs[i].style.border = "solid 1px black";
+                imgs[i].alt = i; // 이미지 마다 번호 부여 (0:scissors, 1:rock, 2:paper)
+
+                imgs[i].addEventListener('click', function(event) {
+                    if (userSelection != null) {
+                        imgs[userSelection].style.border = "solid 1px black";
+                    }
+                    var img = event.target; // 이벤트 발생 객체
+                    img.style.border = "solid 3px red";
+                    userSelection = parseInt(img.alt);
+                });
+            }
+            
+            ///////////////////////////////////
+
+            var resultImg = document.querySelector('#result-row img');
+            resultImg.style.width = "620px";
+
+            var button = document.querySelector("#button-row button");
+            button.style.width = "100%";
+            button.style.height = "100px";
+            button.style.fontSize = "25pt";
+            button.style.fontWeight = "bold";
+
+            button.addEventListener("click", function(event) {
+                
+                if (userSelection == null) { // 사용자 선택이 없는 경우
+                    alert("가위 바위 보를 선택하세요");
+                    return;
+                }
+                
+                // 컴퓨터 선택 만들기
+                var comSelection = Math.floor(Math.random() * 3);
+                
+                // 사용자 선택과 비교 (0:가위, 1:바위, 2:보)
+                if ( (userSelection == 0 && comSelection == 2) ||
+                     (userSelection == 1 && comSelection == 0) ||
+                     (userSelection == 2 && comSelection == 1) ) {  // Win
+                    resultImg.src = 'images/win.png';   // 결과 표시
+                } else if ( userSelection == comSelection) { // Draw
+                    resultImg.src = 'images/draw.png';  // 결과 표시
+                } else { // Lose
+                    resultImg.src = 'images/lose.png';  // 결과 표시
+                }
+
+                // 사용자 선택 초기화
+                // //var img = document.querySelector(`#user-selection-row img:nth-child(${userSelection + 1})`);
+                // var img = document.querySelectorAll("#user-selection-row img");
+                // img[userSelection].style.border = "solid 1px black";
+                // userSelection = null;
+                
+
+            });
+
+
+        });
+    </script>
+    
+</body>
+</html>

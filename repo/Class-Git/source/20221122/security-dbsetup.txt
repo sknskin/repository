@@ -1,0 +1,12 @@
+create table role (
+  roleno int primary key auto_increment,
+  rolename varchar (50) not null
+);
+
+create table member_role (
+  memberid varchar(20) not null,
+  roleno int not null,
+  constraint pk_member_role primary key (memberid, roleno),
+  constraint fk_member_role_to_member foreign key (memberid) references member(memberid),
+  constraint fk_member_role_to_role foreign key (roleno) references role(roleno)
+);

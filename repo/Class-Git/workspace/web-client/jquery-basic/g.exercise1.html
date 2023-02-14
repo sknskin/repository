@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>문서 객체 연습</title>
+</head>
+<body>
+    
+    <input type="text" id="krw">
+    <button id="btn-krw-to-usd">원==&gt;달러</button>
+    <button id="btn-usd-to-krw">원&lt;==달러</button>
+    <input type="text" id="usd">
+
+    <hr>
+
+    <table border="1">
+        <tr>
+            <td colspan="6">
+                <button id="btn-select-numbers" style="width:100%">번호 뽑기</button>
+            </td>
+        </tr>
+        <tr>
+            <td><input type="text" readonly id="no1"></td>
+            <td><input type="text" readonly id="no2"></td>
+            <td><input type="text" readonly id="no3"></td>
+            <td><input type="text" readonly id="no4"></td>
+            <td><input type="text" readonly id="no5"></td>
+            <td><input type="text" readonly id="no6"></td>
+        </tr>
+    </table>
+    
+    <script src="js/jquery-3.6.1.js"></script>
+    <script type="text/javascript">
+        // 환율변경
+        $("#btn-krw-to-usd").on('click', function() {
+            // 읽기 : usd.value -> usd.val();
+            // 쓰기 : usd.value = 10 -> usd.val(10);
+            $("#usd").val( parseInt($("#krw").val()) / 1362 );
+        });
+        $("#btn-usd-to-krw").on('click', function() {
+            $("#krw").val( parseInt($("#usd").val()) * 1362 );
+        });
+        ////////////////////////////////////////////
+        // 로또
+        function selectLottoNumbers() {
+            var numbers = new Array(6); // [0, 0, 0, 0, 0, 0]
+            for (var i = 0; i < 6; i++) {
+                var no = Math.random() * 45;
+                no = Math.floor( no ) + 1;
+                numbers[i] = no;
+                for (var j = 0; j < i; j++) {
+                    if (numbers[i] == numbers[j]) {
+                        i--; // i = -1;
+                        break;
+                    }
+                }
+            }
+            return numbers;
+        }
+
+        //1. 
+        // $('#btn-select-numbers').on('click', function(event) {
+        //     var numbers = selectLottoNumbers(); // 번호 뽑기 ==> 배열 반환
+        //     for (var i = 0; i < numbers.length; i++) {
+        //         var number = numbers[i] // 번호 하나씩 뽑기
+        //         $("#no" + (i + 1)).val(number);
+        //     }
+        // });
+
+        //2. 
+        // alert( $('input[id*=no]').length ); // jQuery객체.length : 포함된 요소의 갯수
+        // jQuery객체.each(함수) : 포함된 객체마다 함수 호출 -> 함수(순서번호, 객체) 
+        $('input[id*=no]').each(function(idx, input) { 
+            alert(idx + " / " + input.id);
+        });
+
+        $('#btn-select-numbers').on('click', function(event) {
+            var numbers = selectLottoNumbers(); // 번호 뽑기 ==> 배열 반환
+            $('input[id*=no]').each(function(idx, input) { // jQuery객체.each(함수) : 포함된 객체마다 함수 호출 
+                // input.value = numbers[idx];
+                $(input).val(numbers[idx]);
+            }); 
+        });
+
+    </script>
+
+</body>
+</html>

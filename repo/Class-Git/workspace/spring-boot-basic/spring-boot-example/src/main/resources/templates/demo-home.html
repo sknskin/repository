@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Demo Home</title>
+</head>
+<body>
+
+	<h1>Spring Boot - Flask Example Home</h1>
+	
+	<hr>
+	
+	<h3>1-1. <a href="get-greetings">Get Greetings</a></h3>
+	<h3>1-2. <a href="get-greetings?name=장동건">Get Greetings</a></h3>
+	
+	<h3>2. <a href="get-winning-numbers">로또 당첨 번호 뽑기</a></h3>
+	
+	<!--       로그인 버튼 클릭 -> spring controller -> flask handler(demoweb db 사용) -> spring controller -> 브라우저          -->
+	<h3>3-1. 로그인 (GET)</h3>
+	<form action="login" method="get">
+		아이디 : <input type="text" name="memberId"><br>
+		패스워드 : <input type="password" name="passwd"><br>
+		<input type="submit" value="로그인">
+	</form>
+	<h3>3-2. 로그인 (POST)</h3>
+	<form action="login2" method="post">
+		아이디 : <input type="text" name="memberId"><br>
+		패스워드 : <input type="password" name="passwd"><br>
+		<input type="submit" value="로그인">
+	</form>
+	
+	<h3>4. 파일 전송</h3>
+	<form action="upload-file" method="post" enctype="multipart/form-data">
+		file1 : <input type="file" name="file1"><br>
+		file2 : <input type="file" name="file2"><br>
+		<input type="submit" value="파일 전송">
+	</form>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+

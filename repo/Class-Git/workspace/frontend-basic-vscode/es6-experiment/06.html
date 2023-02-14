@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+</head>
+<body>
+    <script type="text/javascript">
+        function increase10(number) {
+            const promise = new Promise((resolve, reject) => {
+                window.setTimeout(
+                    () => {
+                        const result = number + 10;
+                        if (number <= 50) {
+                            resolve(result);
+                        } else {
+                            reject("The End !!!");
+                        }
+                    },
+                    1000
+                );
+            });
+            return promise
+        }
+
+        increase10(0).then( (result) => { console.log(result); return increase10(result)})
+                     .then( (result) => { console.log(result); return increase10(result)})
+                     .then( (result) => { console.log(result); return increase10(result)})
+                     .then( (result) => { console.log(result); return increase10(result)})
+                     .then( (result) => { console.log(result); return increase10(result)})
+                     .then( (result) => { console.log(result); return increase10(result)})
+                     .catch( (e) => console.log(e) );
+    </script>
+</body>
+</html>
