@@ -16,7 +16,7 @@
 	<bean id="dataSource" class="org.apache.commons.dbcp2.BasicDataSource">
 		<property name="driverClassName" value="com.mysql.cj.jdbc.Driver" />
 		<!-- 수정 -->
-		<property name="url" value="jdbc:mysql://43.201.107.251:3306/groupware?serverTimezone=UTC" />
+		<property name="url" value="jdbc:mysql://3.36.132.159:3306/groupware?serverTimezone=UTC" />
 		<property name="username" value="team1" />
 		<property name="password" value="mysql" />
 		<property name="maxTotal" value="100" />
